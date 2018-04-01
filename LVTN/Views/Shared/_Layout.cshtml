@@ -1,42 +1,475 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+﻿
+@{
+    Layout = null;
+}
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
-</html>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+          "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+
+
+
+
+
+<HTML>
+<HEAD>
+    <TITLE>H&#7879; th&#7889;ng N&#7897;p Thu&#7871; &#272;i&#7879;n T&#7917;</TITLE>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</HEAD>
+<BODY leftMargin="0" rightMargin="0" topMargin="0" marginheight="0" marginwidth="0">
+
+
+
+
+
+
+    <script type="text/javascript" src="https://nopthue.gdt.gov.vn/epay_nnt/styles/js/common.js"></script>
+    <script type="text/javascript" src="https://nopthue.gdt.gov.vn/epay_nnt/styles/js/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="https://nopthue.gdt.gov.vn/epay_nnt/styles/js/hoverIntent.js"></script>
+    <script type="text/javascript" src="https://nopthue.gdt.gov.vn/epay_nnt/styles/js/superfish.js"></script>
+    <script type="text/javascript" src="https://nopthue.gdt.gov.vn/epay_nnt/styles/js/datepicker_lang_US.js"></script>
+    <script type="text/javascript" src="https://nopthue.gdt.gov.vn/epay_nnt/styles/js/jquery.datepicker.js"></script>
+    <script type="text/javascript" src="https://nopthue.gdt.gov.vn/epay_nnt/script/page.js"></script>
+
+    <script type="text/javascript">
+        var headID = document.getElementsByTagName("head")[0];
+        // add style
+        var cssNode = document.createElement('link');
+        cssNode.type = 'text/css';
+        cssNode.rel = 'stylesheet';
+        cssNode.href = 'https://nopthue.gdt.gov.vn/epay_nnt/styles/css/reset.css';
+        cssNode.media = 'screen';
+        headID.appendChild(cssNode);
+        // add style
+        var cssNode = document.createElement('link');
+        cssNode.type = 'text/css';
+        cssNode.rel = 'stylesheet';
+        cssNode.href = 'https://nopthue.gdt.gov.vn/epay_nnt/styles/css/dp.css';
+        cssNode.media = 'screen';
+        headID.appendChild(cssNode);
+        // ***
+        cssNode = document.createElement('link');
+        cssNode.type = 'text/css';
+        cssNode.rel = 'stylesheet';
+        cssNode.href = 'https://nopthue.gdt.gov.vn/epay_nnt/styles/css/layout.css';
+        cssNode.media = 'screen';
+        headID.appendChild(cssNode);
+        // ***
+        cssNode = document.createElement('link');
+        cssNode.type = 'text/css';
+        cssNode.rel = 'stylesheet';
+        cssNode.href = 'https://nopthue.gdt.gov.vn/epay_nnt/styles/css/superfish.css';
+        cssNode.media = 'screen';
+        headID.appendChild(cssNode);
+
+        // ***
+        var cssNode = document.createElement('link');
+        cssNode.type = 'text/css';
+        cssNode.rel = 'stylesheet';
+        cssNode.href = 'https://nopthue.gdt.gov.vn/epay_nnt/styles/ihtkk.css';
+        cssNode.media = 'screen';
+        headID.appendChild(cssNode);
+
+        // ***
+        cssNode = document.createElement('link');
+        cssNode.type = 'text/css';
+        cssNode.rel = 'stylesheet';
+        cssNode.href = 'https://nopthue.gdt.gov.vn/epay_nnt/styles/css/superfish-navbar.css';
+        cssNode.media = 'screen';
+        headID.appendChild(cssNode);
+
+        function GetUnicode(iStr) {
+            for (i = 0, oStr = ''; i < iStr.length;) {
+                if (iStr.charCodeAt(i) == 38) {
+                    if (iStr.charCodeAt(i + 1) == 35) {
+                        p = iStr.indexOf(';', i + 2);
+                        if (p != -1) {
+                            if (p - i <= 7) {
+                                if (isFinite(iStr.substr(i + 2, p - i - 2))) {
+                                    oStr = oStr.concat(String.fromCharCode(iStr.substr(i + 2, p - i - 2)));
+                                    i = p + 1;
+                                    continue;
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        p = iStr.indexOf(';', i + 1);
+                        if (p != -1) {
+                            switch (iStr.substr(i + 1, p - i - 1)) {
+                                case 'amp':
+                                    oStr = oStr.concat('&');
+                                    i = p + 1;
+                                    break;
+                                case 'quot':
+                                    oStr = oStr.concat('"');
+                                    i = p + 1;
+                                    break;
+                                case 'lt':
+                                    oStr = oStr.concat('<');
+                                    i = p + 1;
+                                    break;
+                                case 'gt':
+                                    oStr = oStr.concat('>');
+                                    i = p + 1;
+                                    break;
+                            }
+                        }
+                    }
+                }
+
+
+                oStr = oStr.concat(iStr.charAt(i));
+                i++;
+            }
+
+            return oStr;
+        }
+
+    </script>
+    <script type="text/javascript">
+        function activeMenu(name) {
+            $('#' + name).addClass('current');
+        }
+        $(document).ready(function () {
+            $("ul.sf-menu").superfish({
+                pathClass: 'current'
+            });
+        });
+    </script>
+    <script type="text/javascript">
+
+        function gotoHome(vValue) {
+            window.location = 'https://nopthue.gdt.gov.vn/epay_nnt/' + vValue;
+        }
+        function gotoNTDTPage(vValue) {
+            window.location = 'https://nopthue.gdt.gov.vn/epay_nnt/' + vValue;
+        }
+        function keKhaiOnline() {
+            window.location.href = '/epay_nnt/lapTKhai.do';
+        }
+    </script>
+
+    <style>
+        .picker {
+            height: 14px;
+            width: 16px;
+            background: url("https://nopthue.gdt.gov.vn/epay_nnt/styles/images/cal.gif") no-repeat;
+            margin-left: -18px;
+            margin-bottom: -2px;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+    <div id="mainWrapper">
+        <!-- BEGIN: HEADER -->
+        <div id="header">
+            <h1 id="logo"><img src="https://nopthue.gdt.gov.vn/epay_nnt/styles/images/logo.png" alt="" class="pngFix" /></h1>
+            <h2 id="siteName"><img src="https://nopthue.gdt.gov.vn/epay_nnt/styles/images/siteName.gif" alt="Thu&#7871; Vi&#7879;t Nam T&#7893;ng c&#7909; thu&#7871; b&#7897; T&#224;i Ch&#237;nh N&#432;&#7899;c c&#7897;ng h&#242;a x&#227; h&#7897;i ch&#7911; ngh&#297;a Vi&#7879;t Nam" /></h2>
+
+            <div class="dao_tao">
+             Hệ thống quản lý thu nộp thuế hộ cá thể
+            </div>
+            <!--BEGIN: NNT-->
+
+            <div id="mdl_login">
+                <a href="javascript:gotoHome('DKyBSung/DkyBsung.jsp')" style="margin-left:10px"><img src="https://nopthue.gdt.gov.vn/epay_nnt/styles/images/btn_register.jpg" alt="register" /></a>
+                <a href="javascript:gotoHome('LoginNTPage.jsp')" style="margin-left:10px"><img src="https://nopthue.gdt.gov.vn/epay_nnt/styles/images/btn_login.gif" alt="login" /></a>
+
+            </div>
+
+        </div>
+        <!-- END: HEADER -->
+        <!-- BEGIN: GNB -->
+
+        <div id="GNB">
+            <ul class="sf-menu sf-navbar">
+                <li id="mn1"><a href="javascript:gotoNTDTPage('home.jsp')" id="mn_item1">Trang ch&#7911;</a><ul></ul></li>
+                <li id="mn2">
+                    <a href="javascript:gotoNTDTPage('initNTDT.do')" id="mn_item2">L&#7853;p gi&#7845;y n&#7897;p ti&#7873;n</a>
+                    <ul>
+                        <li><a href="javascript:gotoNTDTPage('preLapChungTu.do')">L&#7853;p gi&#7845;y n&#7897;p ti&#7873;n</a></li>
+                        <li><a href="javascript:gotoNTDTPage('preLapGNTNThay.do')">L&#7853;p gi&#7845;y n&#7897;p ti&#7873;n n&#7897;p thay</a></li>
+                    </ul>
+                </li>
+                <li id="mn3">
+                    <a href="javascript:gotoNTDTPage('initNTDT.do')" id="mn_item3">Tra c&#7913;u</a>
+                    <ul>
+                        <li><a href="javascript:gotoNTDTPage('initNTDT.do')">Tra c&#7913;u gi&#7845;y n&#7897;p ti&#7873;n</a></li>
+                        <li><a href="javascript:gotoNTDTPage('initNTDT.do')">Tra c&#7913;u th&#244;ng b&#225;o</a></li>
+                        <li><a href="javascript:gotoNTDTPage('initNTDT.do')">Tra c&#7913;u s&#7889; t&#224;i kho&#7843;n NH</a></li>
+                    </ul>
+                </li>
+                <li id="mn4">
+                    <a href="javascript:gotoNTDTPage('initNTDT.do')" id="mn_item4">T&#224;i kho&#7843;n</a>
+                    <ul>
+                        <li><a href="javascript:gotoNTDTPage('initNTDT.do')">Thay &#273;&#7893;i th&#244;ng tin</a></li>
+                        <li><a href="javascript:gotoNTDTPage('initNTDT.do')">&#272;&#259;ng k&#253; ng&#7915;ng</a></li>
+                        <li><a href="javascript:gotoNTDTPage('initNTDT.do')">&#272;&#7893;i m&#7853;t kh&#7849;u</a></li>
+                        <li><a href="javascript:gotoNTDTPage('preDKyBSung.do')">&#272;&#259;ng k&#253; b&#7893; sung NHTM</a></li>
+                        <!--<li><a href="javascript:gotoNTDTPage('initNTDT.do')">KT NHTM thay Äá»i thÃ´ng tin lá»i</a></li>-->
+                        <li><a href="javascript:if(confirm('B&#7841;n c&#243; ch&#7855;c ch&#7855;n mu&#7889;n &#273;&#259;ng xu&#7845;t n&#7897;p thu&#7871; &#273;i&#7879;n t&#7917;?')){gotoNTDTPage('initNTDT.do')}">&#272;&#259;ng xu&#7845;t NTDT</a></li>
+                    </ul>
+                </li>
+                <li id="mn5">
+                    <a id="mn_item5" href="http://nhantokhai.gdt.gov.vn">Khai thu&#7871;</a>
+                </li>
+                <li id="mn6"><a href="javascript:gotoHome('NTDT/TroGiup/TroGiup.jsp')" id="mn_item6">Tr&#7907; gi&#250;p</a><ul></ul></li>
+            </ul>
+        </div>
+
+        <!-- BEGIN: CONTAINER -->
+        <div id="container" class="marT10">
+            <!-- BEGIN: CONTENT -->
+            <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="contentTop" class="clearfix">
+                    <div class="app_error"><br /></div>
+                    <div class="left">
+                     @RenderBody()
+
+                    </div>
+                    <div class="right">
+                        <div class="marT20">
+                            <div class="box_common">
+                                <h3>Video</h3>
+                                <div class="box_common_content" style="text-align:center">
+                                    <a href="http://www.gdt.gov.vn/wps/portal/home/video" target="_blank">
+                                        <img src="https://nopthue.gdt.gov.vn/epay_nnt/images/ntdt_video.png"
+                                             border="0" />
+                                    </a>
+                                </div>
+                                <div class="box_common_foot_l">
+                                    <div class="box_common_foot_r">
+                                        <div class="box_common_foot"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="hotnews" class="marT20">
+                            <div class="box_common">
+                                <h3>H&#7895; tr&#7907;</h3>
+                                <div class="box_common_content">
+                                    <ul>
+                                        <li class="clearfix">
+                                            <img src="https://nopthue.gdt.gov.vn/epay_nnt/styles/images/software_download.png"
+                                                 alt="" />
+                                            <a href="https://nopthue.gdt.gov.vn/epay_nnt/LoginNTPage.jsp" class="support_title">Ph&#7847;n m&#7873;m li&#234;n quan</a>
+                                            <div class="support_list">
+                                                <a href="http://123.30.179.220/download/Ung dung ky Offline cua Thue.rar">Ph&#7847;n m&#7873;m k&#253; offline</a>
+
+                                                <a href="http://ihtkkresource.gdt.gov.vn/ihtkk_nnt_resource/resources/iHTKK/HTKK.rar">Ph&#7847;n m&#7873;m HTKK</a>
+
+                                                <a href="http://123.30.179.220/download/jre.rar">Ph&#7847;n m&#7873;m Java plug-in</a>
+
+                                                <a href="http://ihtkkresource.gdt.gov.vn/ihtkk_nnt_resource/resources/iHTKK/jdk7.rar">Ph&#7847;n m&#7873;m Java plug-in 7</a>
+
+                                                <a href="http://ihtkkresource.gdt.gov.vn/ihtkk_nnt_resource/resources/iHTKK/iTaxViewer.rar">&#7912;ng d&#7909;ng &#273;&#7885;c h&#7891; s&#417; thu&#7871; XML - iTaxViewer</a>
+
+                                                <a href="https://nopthue.gdt.gov.vn/epay_nnt/LoginNTPage.jsp">...</a>
+                                            </div>
+                                        </li>
+
+                                        <li class="clearfix">
+                                            <img src="https://nopthue.gdt.gov.vn/epay_nnt/styles/images/manual_icon.png"
+                                                 alt="" />
+                                            <a href="https://nopthue.gdt.gov.vn/epay_nnt/LoginNTPage.jsp" class="support_title">H&#432;&#7899;ng d&#7851;n s&#7917; d&#7909;ng</a>
+                                            <div class="support_list">
+                                                <a href="http://ihtkkresource.gdt.gov.vn/ihtkk_nnt_resource/resources/iHTKK/TaiLieu_HDSD.rar">H&#432;&#7899;ng d&#7851;n s&#7917; d&#7909;ng</a>
+
+                                                <a href="http://123.30.179.220/download/01_Huong_Dan_Cai_Dat.rar">H&#432;&#7899;ng d&#7851;n c&#224;i &#273;&#7863;t</a>
+
+                                                <a href="http://123.30.179.220/download/HuongDanQuyTrinhNghiepVu.rar">H&#432;&#7899;ng d&#7851;n quy tr&#236;nh nghi&#7879;p v&#7909; </a>
+
+                                                <a href="https://nopthue.gdt.gov.vn/epay_nnt/LoginNTPage.jsp">...</a>
+                                            </div>
+                                        </li>
+                                        <li class="clearfix">
+                                            <img src="https://nopthue.gdt.gov.vn/epay_nnt/styles/images/manual_icon.png"
+                                                 alt="" />
+                                            <a href="https://nopthue.gdt.gov.vn/epay_nnt/LoginNTPage.jsp" class="support_title">H&#432;&#7899;ng d&#7851;n s&#7917; d&#7909;ng NTDT</a>
+                                            <div class="support_list">
+                                                <a href='http://ihtkkresource.gdt.gov.vn/ihtkk_nnt_resource/resources/NTDT/HDSD_NTDT_NNT.rar'>H&#432;&#7899;ng d&#7851;n s&#7917; d&#7909;ng</a>
+                                                <a href='http://ihtkkresource.gdt.gov.vn/ihtkk_nnt_resource/resources/NTDT/HDan_Cai_Dat_Java.rar'>H&#432;&#7899;ng d&#7851;n c&#224;i &#273;&#7863;t v&#224; c&#7845;u h&#236;nh Java</a>
+                                                <a href='http://ihtkkresource.gdt.gov.vn/ihtkk_nnt_resource/resources/NTDT/CamNang_NTDT.rar'>C&#7849;m nang NTDT</a>
+                                                <a href='https://nopthue.gdt.gov.vn/epay_nnt/home.jsp?cat_id=141&news_id=882' target="_blank">H&#432;&#7899;ng d&#7851;n &#273;&#259;ng k&#253; NTDT</a>
+                                                <a href='https://nopthue.gdt.gov.vn/epay_nnt/NTDT/TroGiup/TaiLieu/DanhSachNH.rar'>Danh s&aacute;ch NHTM &#273;&atilde; tri&#7875;n khai NTDT</a>
+                                                <a href="https://nopthue.gdt.gov.vn/epay_nnt/LoginNTPage.jsp">...</a>
+                                            </div>
+                                        </li>
+
+                                        <li class="clearfix">
+                                            <img src="https://nopthue.gdt.gov.vn/epay_nnt/styles/images/contact_item.png"
+                                                 alt="" />
+                                            <a href="https://nopthue.gdt.gov.vn/epay_nnt/hotro/index.jsp">Th&#244;ng tin li&#234;n h&#7879;, h&#7895; tr&#7907;</a></a>
+
+                                            <div class="support_list">
+                                                <a href="https://nopthue.gdt.gov.vn/epay_nnt/hotro/index.jsp">Th&#244;ng tin li&#234;n h&#7879; h&#7895; tr&#7907;, &#273;&#259;ng k&#253; d&#7883;ch v&#7909; c&#7911;a c&#225;c c&#417; quan thu&#7871;</a>
+                                            </div>
+                                        </li>
+
+                                        <!--   <li class="clearfix">
+                                             <img src="https://nopthue.gdt.gov.vn/epay_nnt/styles/images/contact_item.png"
+                                                  alt=""/>
+                                             <a href="javascript:gotoApp('TroGiup/Lienhe_Main.jsp')">Th&#244;ng tin li&#234;n h&#7879;, h&#7895; tr&#7907;</a>
+
+                                             <div class="support_list">
+                                               <a href="javascript:gotoApp('TroGiup/LienheContent_public.jsp')">Th&#244;ng tin li&#234;n h&#7879; h&#7895; tr&#7907;, &#273;&#259;ng k&#253; d&#7883;ch v&#7909; c&#7911;a c&#225;c c&#417; quan thu&#7871;</a>
+                                             </div>
+                                           </li>-->
+
+                                    </ul>
+                                </div>
+                                <div class="box_common_foot_l">
+                                    <div class="box_common_foot_r">
+                                        <div class="box_common_foot"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--<div  class="marT20">
+                          <div class="box_common">
+                            <h3>Th&#244;ng tin li&#234;n h&#7879;, h&#7895; tr&#7907;</h3>
+                            <div class="box_common_content">
+                               <ul >
+                                <li>
+                                  <a href="https://nopthue.gdt.gov.vn/epay_nnt/NTDT/TroGiup/TroGiup.jsp" style="{color:#31659c;font-size:9pt;}; hover{font-size: 9px; color: #000; text-decoration:underline;};">Th&#244;ng tin li&#234;n h&#7879; h&#7895; tr&#7907;, &#273;&#259;ng k&#253; d&#7883;ch v&#7909; c&#7911;a c&#225;c c&#417; quan thu&#7871;</a>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="box_common_foot_l">
+                              <div class="box_common_foot_r">
+                                <div class="box_common_foot"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>-->
+
+                        <div class="marT20">
+                            <div class="box_common">
+                                <h3>Li&#234;n k&#7871;t</h3>
+                                <div class="box_common_content" style="text-align:center">
+                                    <a href="http://www.mof.gov.vn/">
+                                        <img src="https://nopthue.gdt.gov.vn/epay_nnt/images/133694_BoTaichinh.gif"
+                                             border="0" />
+                                    </a>
+
+                                    <a href="http://www.gdt.gov.vn/wps/portal/home/quyettoanttncn">
+                                        <img src="https://nopthue.gdt.gov.vn/epay_nnt/images/133396_TNCN.jpg"
+                                             alt="" width="140px" border="0" />
+                                    </a>
+
+                                    <a href="http://www.gdt.gov.vn/wps/portal/?uri=nm:oid:Z6_CQKCVKV008PE10IMQ766712864">
+                                        <img src="https://nopthue.gdt.gov.vn/epay_nnt/images/135150_Hoi_Dap_CST_chuan.gif"
+                                             border="0" width="140px" />
+                                    </a>
+
+                                    <a href="http://www.gdt.gov.vn/wps/portal/home/hotrokekhai">
+                                        <img src="https://nopthue.gdt.gov.vn/epay_nnt/images/134893_HTKK_v2_5_3.jpg"
+                                             border="0" width="140px" />
+                                    </a>
+
+                                    <a href="http://www.gdt.gov.vn/wps/portal/?uri=nm:oid:Z6_CQKCVKV008PE10IMQ7667128Q1">
+                                        <img src="https://nopthue.gdt.gov.vn/epay_nnt/images/129783_LOGO-project30_03.jpg"
+                                             border="0" width="140px" />
+                                    </a>
+                                </div>
+                                <div class="box_common_foot_l">
+                                    <div class="box_common_foot_r">
+                                        <div class="box_common_foot"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script type="text/javascript">
+                    activeMenu('mn1');
+
+                    function goPage(page) {
+                        var _url = 'https://nopthue.gdt.gov.vn/epay_nnt/home.jsp' + '?st_current_page=' + page;
+                        window.location.href = _url;
+                    }
+                </script>
+            </div>
+            <!-- END: CONTENT -->
+        </div>
+        <!-- END: CONTAINER -->
+        <!-- BEGIN: FOOTER -->
+        <div id="footer">
+            <ul id="footerNavi" class="clearfix">
+                <li><a href="javascript:gotoHome('home.jsp')">TRANG CH&#7910;</a></li>
+                <li><a href="javascript:gotoHome('preLapChungTu.do')">L&#7853;p gi&#7845;y n&#7897;p ti&#7873;n</a></li>
+                <li><a href="javascript:gotoHome('preTraCuuChungTu.do')">Tra c&#7913;u</a></li>
+                <li><a href="javascript:gotoHome('preChangeTTinNNT.do')">T&#224;i kho&#7843;n</a></li>
+                <li><a href="http://nhantokhai.gdt.gov.vn">Khai thu&#7871;</a></li>
+                <li><a href="javascript:gotoHome('/NTDT/TroGiup/TroGiup.jsp')">Tr&#7907; gi&#250;p</a></li>
+            </ul>
+
+            <address>
+                <strong>Thu&#7871; Vi&#7879;t Nam - C&#7893;ng th&#244;ng tin &#273;i&#7879;n t&#7917; c&#7911;a T&#7893;ng c&#7909;c Thu&#7871; Li&#234;n h&#7879;</strong><br />
+                <strong>C&#417; quan ch&#7911; qu&#7843;n:</strong> B&#7897; t&#224;i ch&#237;nh<br />
+                <strong>&#272;&#7883;a ch&#7881;:</strong> S&#7889; 123 L&#242; &#272;&#250;c, H&#224; N&#7897;i<br />
+
+            </address>
+        </div>
+        <!-- END: FOOTER -->
+    </div>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-70986232-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</BODY>
+</HTML>
+<script id="f5_cspm">
+    (function () {
+        var f5_cspm = {
+            f5_p: 'IKBCKCLGMLIJGFAEDBOKGHNOHLGDACFNFPDBPJHDLLLGKMFHBPCBFIMKCJHHEAGHDGJBIDIIEFINPICFCEJALPGDAIAHCDFKNBDOIAOOIFFDCLPODFBCPNHCBJKGKAGD', setCharAt: function (str, index, chr) { if (index > str.length - 1) return str; return str.substr(0, index) + chr + str.substr(index + 1); }, get_byte: function (str, i) { var s = (i / 16) | 0; i = (i & 15); s = s * 32; return ((str.charCodeAt(i + 16 + s) - 65) << 4) | (str.charCodeAt(i + s) - 65); }, set_byte: function (str, i, b) { var s = (i / 16) | 0; i = (i & 15); s = s * 32; str = f5_cspm.setCharAt(str, (i + 16 + s), String.fromCharCode((b >> 4) + 65)); str = f5_cspm.setCharAt(str, (i + s), String.fromCharCode((b & 15) + 65)); return str; }, set_latency: function (str, latency) { latency = latency & 0xffff; str = f5_cspm.set_byte(str, 40, (latency >> 8)); str = f5_cspm.set_byte(str, 41, (latency & 0xff)); str = f5_cspm.set_byte(str, 35, 2); return str; }, wait_perf_data: function () {
+                try {
+                    var wp = window.performance.timing; if (wp.loadEventEnd > 0) {
+                        var res = wp.loadEventEnd - wp.navigationStart; if (res < 60001) { var cookie_val = f5_cspm.set_latency(f5_cspm.f5_p, res); window.document.cookie = 'f5avr1225359190aaaaaaaaaaaaaaaa=' + encodeURIComponent(cookie_val) + ';path=/'; }
+                        return;
+                    }
+                }
+                catch (err) { return; }
+                setTimeout(f5_cspm.wait_perf_data, 100); return;
+            }, go: function () {
+                var chunk = window.document.cookie.split(/\s*;\s*/); for (var i = 0; i < chunk.length; ++i) {
+                    var pair = chunk[i].split(/\s*=\s*/); if (pair[0] == 'f5_cspm' && pair[1] == '1234') { var d = new Date(); d.setTime(d.getTime() - 1000); window.document.cookie = 'f5_cspm=;expires=' + d.toUTCString() + ';path=/;'; setTimeout(f5_cspm.wait_perf_data, 100); }
+                }
+            }
+        }
+        f5_cspm.go();
+    }());</script>
+@RenderSection("scripts", required: false)
