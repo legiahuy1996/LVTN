@@ -171,6 +171,8 @@
     <Content Include="images\logo-bg-bot.jpg" />
     <Content Include="images\logo-bg-top.jpg" />
     <Content Include="images\logo.jpg" />
+    <Content Include="images\logo1.jpg" />
+    <Content Include="images\logo2.jpg" />
     <Content Include="images\menu-bg-on.jpg" />
     <Content Include="images\menu-bg.jpg" />
     <Content Include="images\more-bg.gif" />
